@@ -25,7 +25,7 @@ int main(void)
 	k = 0;
 	led_pos = 0;
 	
-	DDRA |= (1 << PORTA6);
+	DDRA |= (1 << PORTA6) | (1 << PORTA3);
 	
 	adc_init();
 	adc_interrupt_enable();
@@ -34,7 +34,7 @@ int main(void)
 	
 	bit_bang_init();
 	
-	
+	PORTA |= (1 << PORTA3);
 	
     while (1) {
 		//PORTA |= (1 << PORTA6);
