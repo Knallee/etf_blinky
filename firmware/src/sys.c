@@ -25,9 +25,8 @@ void sys_init(void)
     if (!patternBootSequence()) sys_powerOff();
 
     // don't fully start the system until user releases the pwr button
-    while (BTNPWR_IS_PRESSED())
-    {
-    }
+    while (btnIsPressed(BUTTON_PWR));
+
 
     adc_init();
     adcSetAudioChannel();
@@ -59,9 +58,8 @@ void sys_powerOn(void)
 void sys_powerOff(void)
 {
     // wait until the pwr button is released, otherwise we can not turn the device off
-    while (BTNPWR_IS_PRESSED())
-    {
-    }
+    while (btnIsPressed(BUTTON_PWR));
+
     SYS_PWR_EN_PORT &= ~(1 << SYS_PWR_EN_PIN);
 }
 

@@ -79,7 +79,7 @@ void *isrThread(void *arg)
         ev.code = EV_BUTTON_PRESSED;
         ev.eventData = nice++;
         printf(ISRTAG "Add event %d: %d\n", ev.code, ev.eventData);
-        bool ret = evAdd(ev, TIME_NOW);
+        bool ret = evAdd(&ev, &(uint32_t){TIME_NOW});
         if (!ret) printf(ISRTAG "Event handler full!\n");
 
         //usleep(600000);
@@ -87,7 +87,7 @@ void *isrThread(void *arg)
         ev.code = EV_BUTTON_RELEASED;
         ev.eventData = chill++;
         printf(ISRTAG "Add event %d: %d\n", ev.code, ev.eventData);
-        ret = evAdd(ev, TIME_NOW);
+        ret = evAdd(&ev, &(uint32_t){TIME_NOW});
         if (!ret) printf(ISRTAG "Event handler full!\n");
 
         //usleep(600000);

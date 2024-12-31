@@ -19,7 +19,7 @@ enum scheduleMode
     RESCHEDULE,
 };
 
-static bool evSchedule(event_s ev, uint32_t delay, enum scheduleMode mode);
+static bool evSchedule(event_s* ev, uint32_t* delay, enum scheduleMode mode);
 
 
 void evInit(void)
@@ -33,7 +33,7 @@ void evInit(void)
 }
 
 
-bool evAdd(event_s ev, uint32_t delay)
+bool evAdd(event_s* ev, uint32_t* delay)
 {
     return evSchedule(ev, delay, SCHEDULE);
 }
@@ -60,7 +60,7 @@ event_s evRun(void)
     if (timerGetUptime() < ev.timeToRun)
     {
         // re-schedule this
-        evSchedule(ev, 0, RESCHEDULE);
+        evSchedule(&ev, 0, RESCHEDULE);
         sys_exitCritical(status);
         return (event_s) NEW_EVENT();
     }
@@ -71,7 +71,7 @@ event_s evRun(void)
 }
 
 
-static bool evSchedule(event_s ev, uint32_t delay, enum scheduleMode mode)
+static bool evSchedule(event_s* ev, uint32_t* delay, enum scheduleMode mode)
 {
 #ifndef TEST
     // thread sanitizer complains about this, so remove during test (only affects performance)
@@ -86,16 +86,18 @@ static bool evSchedule(event_s ev, uint32_t delay, enum scheduleMode mode)
         return false;
     }
 
-    g_eventQueue[g_nextFreeEvent].code = ev.code;
-    g_eventQueue[g_nextFreeEvent].eventData = ev.eventData;
+    g_eventQueue[g_nextFreeEvent].code = ev->code;
+    g_eventQueue[g_nextFreeEvent].eventData = ev->eventData;
     switch (mode)
     {
         case SCHEDULE:
-            g_eventQueue[g_nextFreeEvent].timeToRun = timerGetUptime() + delay;
+            g_eventQueue[g_nextFreeEvent].timeToRun = timerGetUptime() + *delay;
             break;
         case RESCHEDULE:
-            g_eventQueue[g_nextFreeEvent].timeToRun = ev.timeToRun;
+            g_eventQueue[g_nextFreeEvent].timeToRun = ev->timeToRun;
             break;
+        default:
+            __builtin_unreachable();
     }
     g_nextFreeEvent = (g_nextFreeEvent + 1) % DL_MAX_EVENTS;
 

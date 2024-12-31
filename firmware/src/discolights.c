@@ -43,7 +43,7 @@ int main(void)
             case ST_IDLE:
                 if (ev.code == EV_BUTTON_PRESSED)
                 {
-                    if (BTN1_IS_PRESSED() && BTN2_IS_PRESSED())
+                    if (btnIsPressed(BUTTON1) && btnIsPressed(BUTTON2))
                     {
                         sys_batteryCheck();
                         _delay_ms(BATTERY_STATUS_SHOW_TIME);
@@ -54,7 +54,7 @@ int main(void)
                         event_s evHold;
                         evHold.code = EV_BUTTON_HOLD;
                         evHold.eventData = ev.eventData;
-                        evAdd(evHold, TIME_500_MS);
+                        (void)evAdd(&evHold, &(uint32_t){TIME_500_MS});
                     }
                 }
                 break;
@@ -85,7 +85,7 @@ int main(void)
                         event_s evHold;
                         evHold.code = EV_BUTTON_HOLD;
                         evHold.eventData = ev.eventData;
-                        evAdd(evHold, TIME_500_MS);
+                        (void)evAdd(&evHold, &(uint32_t){TIME_500_MS});
                         st = ST_LIGHT_DECREASE;
                     }
                 }
@@ -117,7 +117,7 @@ int main(void)
                         event_s evHold;
                         evHold.code = EV_BUTTON_HOLD;
                         evHold.eventData = ev.eventData;
-                        evAdd(evHold, TIME_500_MS);
+                        (void)evAdd(&evHold, &(uint32_t){TIME_500_MS});
                         st = ST_LIGHT_INCREASE;
                     }
                 }
@@ -133,7 +133,7 @@ int main(void)
                     event_s evHold;
                     evHold.code = EV_BUTTON_HOLD;
                     evHold.eventData = ev.eventData;
-                    evAdd(evHold, TIME_50_MS);
+                    (void)evAdd(&evHold, &(uint32_t){TIME_50_MS});
                 }
                 break;
             case ST_LIGHT_DECREASE:
@@ -147,7 +147,7 @@ int main(void)
                     event_s evHold;
                     evHold.code = EV_BUTTON_HOLD;
                     evHold.eventData = ev.eventData;
-                    evAdd(evHold, TIME_50_MS);
+                    evAdd(&evHold, &(uint32_t){TIME_50_MS});
                 }
                 break;
             case ST_COLOR_NEXT:
@@ -178,9 +178,9 @@ int main(void)
                 break;
         }
 
-        if (ev.code == EV_BUTTON_ISR_DISABLED) btnEnableISR(ev.eventData);
+        if (ev.code == EV_BUTTON_ISR_DISABLED) btnEnableISR(true, ev.eventData);
 
-        if (BTNPWR_IS_PRESSED())
+        if (btnIsPressed(BUTTON_PWR))
         {
             if (patternShutdownSequence()) sys_powerOff();
         }
