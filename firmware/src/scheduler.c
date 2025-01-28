@@ -5,7 +5,7 @@
 
 #ifndef DL_MAX_EVENTS
     #warning "DL_MAX_EVENTS not defined, defaults to 5"
-    #define DL_MAX_EVENTS 10
+    #define DL_MAX_EVENTS 5
 #endif
 
 

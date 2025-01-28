@@ -12,7 +12,7 @@
 
 
 #define NUM_LEDS     10
-#define MAX_PATTERNS 4
+#define MAX_PATTERNS 3
 static patternFunc patterns[MAX_PATTERNS];
 static uint8_t currPattern;
 
@@ -80,7 +80,7 @@ void patternInit(void)
     patterns[0] = patternAudioCheck;
     patterns[1] = patternAudioMiddleOut;
     patterns[2] = patternKnightRider;
-    patterns[3] = staticColorRed;
+    //patterns[2] = staticColorRed;
 }
 
 
@@ -385,7 +385,7 @@ static void patternAudioMiddleOutLevel(uint16_t level)
         break;
     }
 
-    for (int i = 0; i < 5; i++)
+    for (uint8_t i = 0; i < 5; i++)
     {
         if (level > levels[i])
         {
@@ -453,7 +453,7 @@ static void patternKnightRider(void)
     uint16_t level = getAudioAdcVal();
 
     const uint32_t currTime = timerGetUptime();
-    if (level >= 200)
+    if (level >= 150)
     {
         // need to cover 8 LEDs in this time
         dt = (currTime - prevBPM) >> 3;

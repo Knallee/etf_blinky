@@ -73,4 +73,9 @@ else()
         USES_TERMINAL
     )
 
+    add_custom_target(fuse
+        COMMAND ${AVRDUDE} -c ${AVRDUDE_PRG} -p ${AVRDUDE_TRG} -B 8 -U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+        USES_TERMINAL
+    )
+
 endif()
