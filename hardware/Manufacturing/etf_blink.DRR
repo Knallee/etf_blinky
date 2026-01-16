@@ -1,17 +1,19 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: etf_blink.PcbDoc   12/22/2024  1:54:47 PM
+NCDrill File Report For: etf_blink.PcbDoc   2026-01-15  23:46:30
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : L1 - SIG/PWR to L4 - SIG/GND
-ASCII RoundHoles File : etf_blink.TXT
+ASCII RoundHoles File : etf_blink-RoundHoles.TXT
+ASCII SlotHoles File : etf_blink-SlotHoles.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      8mil (0.201mm)                                            Round             95        PTH        14.48inch (367.77mm)
-T2      32mil (0.8mm)                                             Round             10        PTH        2.21inch (56.11mm)
-T3      39mil (1.001mm)                                           Round             46        PTH        7.57inch (192.24mm)
-T4      87mil (2.2mm)                                             Round             4         PTH        7.05inch (179.00mm)
+T1      12mil (0.3mm)                                             Round             97        PTH        14.52inch (368.86mm)
+T2      32mil (0.8mm)                                             Round             2         PTH        0.10inch (2.54mm)
+T3      39mil (1.001mm)                                           Round             42        PTH        6.86inch (174.21mm)
+T4      87mil (2.2mm)                                             Round             3         PTH        4.17inch (106.00mm)
+T5      87mil (2.2mm)                                             Slot              1         PTH        0.15inch (3.80mm)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              155
+Totals                                                                              145
 
 Total Processing Time (hh:mm:ss) : 00:00:00

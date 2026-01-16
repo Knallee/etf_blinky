@@ -1,16 +1,22 @@
 Altium Designer Pick and Place Locations
-C:\git_projects\etf_blink\hardware\.\Manufacturing\Pick Place for etf_blink.csv
+E:\dev\ETF Kurser\etf_blinky\hardware\.\Manufacturing\Pick Place for etf_blink.csv
 
 ========================================================================================================================
 File Design Information:
 
-Date:       22/12/24
-Time:       13:54
-Revision:   b08706cf88b90ccdc7cb2af6f70e0f735f9a8240
+Date:       15-01-26
+Time:       23:46
+Revision:   1becb7400ed07cfbbe7a42657017398c8916fcff
 Variant:    No variations
 Units used: mm
 
 "Designator","Comment","Layer","Footprint","Center-X(mm)","Center-Y(mm)","Rotation","Description"
+"C1","CAP, 1206","BottomLayer","1206_180","35.9870","16.6860","0",""
+"C2","CAP, 1206","BottomLayer","1206_180","48.1540","16.6750","0",""
+"R4","0603, resistor","TopLayer","0603","48.2000","18.2000","180",""
+"R3","0603, resistor","TopLayer","0603","36.0000","18.2000","180",""
+"R2","0603, resistor","TopLayer","0603","48.2000","16.7000","180",""
+"R1","0603, resistor","TopLayer","0603","36.0000","16.7000","180",""
 "R26","0603, resistor","TopLayer","0603","9.0130","5.1830","270",""
 "R20","0603, resistor","TopLayer","0603","9.0130","8.0080","270",""
 "C27","0603, capacitor","TopLayer","0603_cap","10.2925","6.6080","270",""
@@ -35,8 +41,8 @@ Units used: mm
 "R22","0603, resistor","BottomLayer","0603","69.2350","7.0410","270",""
 "D14","Diode, SMD","BottomLayer","SOD323","63.3907","14.3400","90",""
 "C16","CAP, 1206","BottomLayer","1206_180","3.3500","17.1651","90",""
-"C25","CAP, TH","TopLayer","MMK7.5104K100K00L4BULK","17.1010","10.3790","180",""
-"C24","CAP, TH","TopLayer","MMK7.5104K100K00L4BULK","19.6410","23.4660","180",""
+"C25","0603, capacitor","TopLayer","0603_cap","20.9000","10.8025","0",""
+"C24","0603, capacitor","TopLayer","0603_cap","22.7000","23.2975","180",""
 "U6","ATTINY44A","TopLayer","DIP14","15.7710","17.0010","270","8-bit microcontrollers based on the AVR® enhanced RISC
 architecture."
 "U5","LM358","TopLayer","DIP8","67.4350","13.5610","90","Dual FET-Input Operational Amplifier"
@@ -58,10 +64,6 @@ architecture."
 "R7","RES, 0603","BottomLayer","0603","0.4500","10.7000","0",""
 "R6","RES, 0603","BottomLayer","0603","0.3000","14.5951","0",""
 "R5","0603, resistor","BottomLayer","0603","28.0930","20.9700","0",""
-"R4","TH, resistor","TopLayer","TH","48.7620","19.8250","180",""
-"R3","TH, resistor","TopLayer","TH","36.5950","19.8360","180",""
-"R2","TH, resistor","TopLayer","TH","48.7520","16.6850","180",""
-"R1","TH, resistor","TopLayer","TH","36.5750","16.6860","180",""
 "D11","Diode, SMD","BottomLayer","SOD323","3.8610","8.5437","180",""
 "D10","Neo - SK9822","TopLayer","SK9822","60.9159","28.7668","90",""
 "D9","Neo - SK9822","TopLayer","SK9822","54.9469","28.7669","90",""
@@ -91,5 +93,3 @@ architecture."
 "C5","1206, capacitor","TopLayer","1206,_capasitor","19.1841","33.7705","0",""
 "C4","1206, capacitor","TopLayer","1206,_capasitor","13.2151","33.7705","0",""
 "C3","1206, capacitor","TopLayer","1206,_capasitor","7.2412","33.7755","0",""
-"C2","CAP, 1206","BottomLayer","1206_180","48.1540","16.6750","0",""
-"C1","CAP, 1206","BottomLayer","1206_180","35.9870","16.6860","0",""
